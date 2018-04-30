@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user=getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+       user = prompt("Please enter your name:","");
+       if (user != "" && user != null) {
+           setCookie("username", user, 30);
+       }
+    }
+}
+
+</script>
+</head>
+<body onload="checkCookie()">
+	<article>
+		<p>
+			<h1>This is a two part assignment.   Jaime Castellanos IS 117</h1>
+          <dl>
+			<h2>PART 1:</h2>
+
+                <dt>a)</dt>  
+                     <dd> <p><b> Write a short Narrative (one or two paragraphs) on how cookies can
+                     be used to record information about you as you use a web site.</b></p> </dd>
+					 <dd><p>A cookie is a file on the local or may I say, clients’ hard drive.<br>
+					       The file could be used to store information about the client. The file could<br>
+					       contain information like name, birthday, address or email address. You can<br>
+					       store just about any information in a cookie that would help you to provide<br>
+					        a rewarding user experience.
+					 </p></dd>
+
+                <dt>b)</dt> 
+                      <dd><p><b>Discuss the positive and negative aspects of this.</b></p></dd>
+					  <dd><p>You can use the information in the cookie to personalize the user experience.<br>
+                             You don’t have to annoy the client by asking the same questions<br>
+                             You can use it to pre-fill fields on a form.<br>
+                             You can use these field to provide content that the client is interested in.<br> 
+                             You can also maintain a list of favorites for the client.<br>
+							 <br>
+                             Some sites use cookies for nefarious purposes therefore some client turnoff the feature.<br>
+                             If they don’t allow you to store information then you will have to store that<br>
+                             information at your sit. You will also have to program for those situation adding<br>
+                             lines of code to you website.
+
+					  
+					  </p></dd>
+
+                 <dt>c)</dt>  
+                      <dd><p><b>You must answer the question: Is the use of cookies ethical?</b></p></dd>
+					  <dd><p>
+					         I’m on the fence on this issue. It’s like most things in modern society,<br>
+					         a good tool that gets abused. Cookies, when used responsibly,<br>
+					         is a good tool. With that said, greedy sites tend to abuse this feature.
+					  
+					  </p></dd>
+
+                 <h2>PART 2:
+
+                 <dt>a)</dt>  
+                      <dd><p>Create a simple HTML page with any necessary CSS and Javascript that will set
+					      a cookie and then display the cookie on reloading the page.</p></dd>
+
+                  <dt>b)</dt>  
+                       <dd><p>You may refer to the discussion in class and also this page from www.w3schools.com </p></dd>
+          </dl>
+		</p>
+	</article>
+</body>
+</html>
